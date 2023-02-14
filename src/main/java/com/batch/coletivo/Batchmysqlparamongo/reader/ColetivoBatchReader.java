@@ -23,6 +23,9 @@ public class ColetivoBatchReader {
 				.dataSource(dataSource)
 				.sql("SELECT id, garagem_id FROM cco.tb_coletivo;")
 				.rowMapper(new BeanPropertyRowMapper<Ids>(Ids.class))
+				.fetchSize(0)
+				.verifyCursorPosition(false)
+				.saveState(false)
 				.build();
 	}
 

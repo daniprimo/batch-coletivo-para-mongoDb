@@ -13,8 +13,6 @@ public class ColetivoBatchWriters {
 	
 	@Bean
 	public MongoItemWriter<Coletivo> jdbccursoWrtiter (MongoTemplate mongoTemplate) {
-		
-		
 		return new MongoItemWriterBuilder<Coletivo>()
 				.template(mongoTemplate)
 				.collection("ColetivoResponse")

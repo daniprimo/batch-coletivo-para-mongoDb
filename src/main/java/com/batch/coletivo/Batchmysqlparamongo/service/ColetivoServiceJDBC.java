@@ -19,11 +19,16 @@ public class ColetivoServiceJDBC implements RepositoryJDBC {
 
 	@Override
 	public Coletivo construirColetivo (Ids ids) {
+		
+//		if (ids.getId() == 90) {
+//			throw  new RuntimeException();
+//		}
 		String sql = 
 				"SELECT c.id, c.prefixo, c.modelo , c.status, g.nome, g.cidade"
 				+ " FROM cco.tb_coletivo as c"
 				+ " inner join cco.tb_garagem as g"
 				+ " on g.id = c.garagem_id where c.id = "+ids.getId() +";";
+		
 		
 		try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
 			preparedStatement.execute();
@@ -46,6 +51,18 @@ public class ColetivoServiceJDBC implements RepositoryJDBC {
 		return null;
 		
 	}
+	
+	public void drop () {
+		String sql = "DROP DATABASE batch_metadados_coletivo.batch_step_execution;";
+			try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+				preparedStatement.execute();
+			} catch (Exception e) {
+				System.out.println("ERRRRRRRRRRRRRRRRRRROOOOOOOOO");
+				// TODO: handle exception
+			}
+	}
+
+
 
 
 }

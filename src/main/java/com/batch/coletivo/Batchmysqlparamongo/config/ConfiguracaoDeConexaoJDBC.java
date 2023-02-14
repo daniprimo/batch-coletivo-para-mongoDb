@@ -14,7 +14,7 @@ public class ConfiguracaoDeConexaoJDBC {
 	@Bean
 	public ComboPooledDataSource ConnectionFactory() {
 		ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
-		comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/cco?createDatabaseIfNotExist=True");
+		comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/cco");
 		comboPooledDataSource.setUser("root");
 		comboPooledDataSource.setPassword("pedropaulo123");
 		comboPooledDataSource.setMaxPoolSize(15);
